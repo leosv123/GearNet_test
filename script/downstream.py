@@ -71,6 +71,12 @@ if __name__ == "__main__":
         logger.warning(pprint.pformat(cfg))
 
     dataset = core.Configurable.load_config_dict(cfg.dataset)
+    from torchdrug import core
+
+    # inside downstream.py after dataset = core.Configurable.load_config_dict(cfg.dataset)
+    # Add this line:
+    dataset = core.Subset(dataset, list(range(100)))
+
     solver, scheduler = util.build_downstream_solver(cfg, dataset)
 
     #train_and_validate(cfg, solver, scheduler)
