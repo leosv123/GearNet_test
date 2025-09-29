@@ -73,5 +73,5 @@ if __name__ == "__main__":
     dataset = core.Configurable.load_config_dict(cfg.dataset)
     solver, scheduler = util.build_downstream_solver(cfg, dataset)
 
-    train_and_validate(cfg, solver, scheduler)
+    #train_and_validate(cfg, solver, scheduler)
     test(cfg, solver)
